@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup as bs
 from fake_useragent import UserAgent
 
 from sources import IPInfo, IPAPI, DBIP, IP2Location, ScamAlytics
-from logger import logger
+#from logger import logger
 from config import cfg
 
 
@@ -39,6 +39,7 @@ class IPChecker():
         async with aiohttp.ClientSession() as self.session:
             tasks = [checker() for checker in self.checkers]
             results = await asyncio.gather(*tasks)
+            print({k: v for r in results if r for k, v in r.items()})
             return {k: v for r in results if r for k, v in r.items()}
 
     async def request(self, url,
@@ -47,7 +48,8 @@ class IPChecker():
                       get_json=True,
                       attempts=5):
         if not self.session:
-            logger.error("No session")
+            print('No session')
+            #logger.error("No session")
             return
 
         kwargs = {
@@ -70,7 +72,8 @@ class IPChecker():
                 elif response.status >= 500:
                     raise ConnectionError(f'Server error {response.status}')
         except Exception as e:
-            logger.warning(f'Error requesting attempt {attempts} {url}: {e}')
+            print(f'Error requesting attempt {attempts} {url}: {e}')
+            #logger.warning(f'Error requesting attempt {attempts} {url}: {e}')
             attempts -= 1
             if attempts > 0:
                 return await self.request(
