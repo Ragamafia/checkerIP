@@ -4,12 +4,15 @@ IP чекер.
 
 Структура проекта
 main.py — точка входа
+
 checkers.py — основной скрипт, реализующий логику проверки и взаимодействия с ресурсами.
+
 sources.py — содержит определения классов и схем данных с использованием pydantic.
 
-Используемые технологии
-aiohttp — асинхронные HTTP-запросы
-BeautifulSoup — парсинг HTML-страниц
+Используемые технологии:
+
+aiohttp — асинхронные HTTP-запросы 
+BeautifulSoup — парсинг HTML-страниц 
 fake-useragent — генерация случайных User-Agent
 pydantic — валидация и структура данных
 asyncio — управление асинхронными задачами
@@ -17,7 +20,7 @@ asyncio — управление асинхронными задачами
 Установка
 Для запуска проекта потребуется установить зависимости указанные в requirements.txt (pip install -r requirements.txt)
 
-Запуск скрипта:
+Запуск скрипта: python main.py -> ввод IP 
 
 ______________________________________________________________________
 
@@ -41,4 +44,4 @@ Installation
 To run the project, install dependencies listed in requirements.txt:
 pip install -r requirements.txt
 
-Running the script:
+Running the script: python main.py -> enter IP 

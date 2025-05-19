@@ -18,7 +18,7 @@ class IPChecker():
     def __init__(self, ip):
         self.ip = ip
         self.checkers = [
-            self.scamalytics,
+            #self.scamalytics,
             self.ipinfo,
             self.ipapi,
             self.db_ip,
@@ -39,7 +39,6 @@ class IPChecker():
         async with aiohttp.ClientSession() as self.session:
             tasks = [checker() for checker in self.checkers]
             results = await asyncio.gather(*tasks)
-            print({k: v for r in results if r for k, v in r.items()})
             return {k: v for r in results if r for k, v in r.items()}
 
     async def request(self, url,
