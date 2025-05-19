@@ -1,7 +1,7 @@
 from pydantic_settings import BaseSettings
 
 
-DEFAULT_PROXY = "http://e84fe8de4bf5d759b6dc:4756263bc8d0bb04@gw.dataimpulse.com:823"
+DEFAULT_PROXY = ""
 
 class Config(BaseSettings):
     class Config:
